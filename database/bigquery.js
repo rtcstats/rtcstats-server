@@ -103,11 +103,11 @@ module.exports = function (config) {
         put: function (pageUrl, clientId, connectionId, clientFeatures, connectionFeatures, streamFeatures) {
             const d = new Date().getTime();
             const item = {
-                Date: d - (d % (86400 * 1000)), // just the UTC day
-                DateTime: d,
-                ClientId: clientId,
-                ConnectionId: clientId + '_' + connectionId,
-                PageUrl: pageUrl,
+                date: d - (d % (86400 * 1000)), // just the UTC day
+                dateTime: d,
+                clientId: clientId,
+                connectionId: clientId + '_' + connectionId,
+                pageUrl: pageUrl,
             };
 
             Object.assign(item, clientFeatures, connectionFeatures, streamFeatures);
