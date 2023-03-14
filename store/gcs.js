@@ -3,6 +3,10 @@ const { Storage } = require('@google-cloud/storage');
 
 const logger = require('../logging');
 
+function padTo2Digits(num) {
+  return num.toString().padStart(2, '0');
+}
+
 module.exports = function (config) {
   const { bucket } = config;
   const configured = !!bucket;
@@ -14,8 +18,12 @@ module.exports = function (config) {
         logger.warn('no bucket configured for gcp storage');
         throw new Error('no bucket configured for gcp storage')
       }
-      logger.debug(`Adding file: ${filename} to GCP bucket`);
-      await storage.bucket(bucket).upload(filename, { gzip: true });
+      const now = new Date();
+      const date = now.getFullYear() +
+        '/' + padTo2Digits(now.getMonth()+1) +
+        '/' + padTo2Digits(now.getDate()); 
+      logger.debug(`Adding file: ${filename} to GCP bucket destination: ${date}/${key}`);
+      await storage.bucket(bucket).upload(filename, { destination: `${date}/${key}`, gzip: true });
     },
   };
 }

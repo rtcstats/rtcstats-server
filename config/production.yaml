@@ -17,8 +17,10 @@ firehose:
     region:
     stream:
 
-gcp:
+gcs:
     bucket:
+
+bigquery:
     dataset:
     table:
     maxFlushTime:

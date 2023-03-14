@@ -16,16 +16,16 @@ const obfuscate = require('./obfuscator');
 
 // Configure database, fall back to redshift-firehose.
 let database;
-if (config.gcp && config.gcp.dataset && config.gcp.table) {
-    database = require('./database/bigquery.js')(config.gcp);
+if (config.bigquery && config.bigquery.dataset && config.bigquery.table) {
+    database = require('./database/bigquery.js')(config.bigquery);
 } else {
     database = require('./database/redshift-firehose.js')(config.firehose);
 }
 
 // Configure store, fall back to S3
 let store;
-if (config.gcp && config.gcp.bucket) {
-    store = require('./store/gcp.js')(config.gcp);
+if (config.gcs && config.gcs.bucket) {
+    store = require('./store/gcs.js')(config.gcs);
 } else {
     store = require('./store/s3.js')(config.s3);
 }
