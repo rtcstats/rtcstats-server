@@ -1,7 +1,9 @@
 server:
     port: RTCSTATS_SERVER_PORT
     metrics: RTCSTATS_SERVER_METRICS
-
+    cert: RTCSTATS_SERVER_CERT
+    key: RTCSTATS_SERVER_KEY
+  
 s3:
     accessKeyId: RTCSTATS_S3_ACCESS_KEY_ID
     secretAccessKey: RTCSTATS_S3_SECRET_ACCESS_KEY
