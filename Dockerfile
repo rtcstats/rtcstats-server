@@ -1,8 +1,4 @@
-FROM node:10.15.3-alpine
-
-RUN apk add --no-cache git && \
-  rm -rf /var/lib/apt/lists/* /var/cache/apk /usr/share/man /tmp/*
-
+FROM node:19.7-alpine3.16
 
 ENV app rtcstats-server
 
@@ -15,15 +11,13 @@ USER $app
 
 COPY --chown=$app:$app . /$app
 
-RUN npm install
-
+RUN yarn
 
 HEALTHCHECK --interval=10s --timeout=5s --start-period=10s \
-  CMD curl --silent --fail http://localhost:3000/healthcheck \
+  CMD curl --silent --fail http://localhost:9999/healthcheck \
   || exit 1
 
-EXPOSE 3000
+EXPOSE 9999
+EXPOSE 9998
 
-ENTRYPOINT [ "npm" ]
-
-CMD [ "start" ]
+CMD [ "yarn", "start" ]

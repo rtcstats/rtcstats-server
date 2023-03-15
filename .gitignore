@@ -15,6 +15,7 @@ temp
 pids
 logs
 results
+certs
 
 npm-debug.log
 

@@ -2,4 +2,6 @@
 node_modules
 GeoLite2-City.*
 *.log
+temp
+certs
 
