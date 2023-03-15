@@ -16,10 +16,10 @@ firehose:
     stream:
 
 gcs:
-    bucket:
+    bucket: rtcstats
 
 bigquery:
-    dataset:
-    table:
+    dataset: rtcstats
+    table: features
     maxFlushTime:
-    bufferSize:
+    bufferSize: 1
