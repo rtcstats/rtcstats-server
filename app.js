@@ -154,6 +154,8 @@ function setupHttpServer(port, config) {
             }
         })
         .listen(port);
+
+    logger.info(`Server listening on port ${port} with ${tls ? 'tls' : 'no tls'}`);
     return server;
 }
 
@@ -171,6 +173,7 @@ function setupMetricsServer(port) {
             }
         })
         .listen(port);
+    logger.info(`Metrics server listening on port ${port}`);
     return metricsServer;
 }
 
