@@ -1,5 +1,7 @@
+This repository is no longer maintained. See [here](https://github.com/rtcstats/rtcstats) for the current version.
+
 # rtcstats-server
-Server for https://github.com/rtcstats/rtcstats
+Server for https://github.com/rtcstats/rtcstats-js
 
 Store backends:
 * Google Cloud Storage (GCS)
